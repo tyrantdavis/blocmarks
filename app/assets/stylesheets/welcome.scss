@@ -1,7 +1,27 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
+
+.bigfont {
   font-size: 96px;
-  text-align: center;
+}
+
+#mark {
+    background-color: red;
+}
+
+#msg {
+  padding-top: 15px;
+}
+
+.index-li {
+  list-style-type: none; 
+  display: inline-block;
+  padding-bottom: 30px;
+
+}
+
+.centerText {
+      text-align: center;
+      text-decoration-color: red;
 }
