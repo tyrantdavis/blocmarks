@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
 
-  get 'bookmarks/show'
-
-  get 'bookmarks/new'
-
-  get 'bookmarks/edit'
-
-    devise_for :users
-    
-    resources :topics do
-      resources :bookmarks
-    end
+  resources :topics do
+    resources :bookmarks
+  end
 
   post :incoming, to: 'incoming#create'
 

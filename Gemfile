@@ -28,7 +28,7 @@ gem 'groupdate'
 # required to use render/assert_template testing
 gem 'rails-controller-testing'
 ## Gemfile for Rails 3+, Sinatra, and Merb
-gem 'will_paginate', '~> 3.1.0'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'byebug'
