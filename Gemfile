@@ -29,6 +29,8 @@ gem 'groupdate'
 gem 'rails-controller-testing'
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'activeadmin'
+#Gem for user authorization
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug'
