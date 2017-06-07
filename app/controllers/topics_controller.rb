@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
 
   before_filter :authenticate_user!
+  before_action :set_topic, except: [:new, :create, :index]
   # after_action :verify_authorized, :except => [:index]
 
   def index
@@ -65,6 +66,10 @@ class TopicsController < ApplicationController
     end
 
     private
+
+    def set_topic
+      @topic = Topic.find(params[:id])
+    end
 
     def topic_params
       params.require(:topic).permit(:title, :user)
