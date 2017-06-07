@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
   end
 
@@ -6,13 +8,14 @@ class LikesController < ApplicationController
     @bookmark = Bookmark.find(params[:bookmark_id])
     @topic = @bookmark.topic
     like = current_user.likes.build(bookmark: @bookmark)
+    authorize like
 
     if like.save
       flash[:notice] = "Bookmark successfully liked."
       redirect_to [@topic, @bookmark]
     else
       flash[:error] = "Bookamrk like failed."
-      redirect_to [@topic, @bookmark]
+      redirect_to [@topic, @bookmark  ]
     end
   end
 
@@ -22,6 +25,7 @@ class LikesController < ApplicationController
     @topic = @bookmark.topic
     # Find the current user's like with the ID in the params
     like = current_user.likes.build(bookmark: @bookmark)
+    authorize like
 
 
     if like.destroy
