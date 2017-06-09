@@ -22,6 +22,11 @@ class User < ActiveRecord::Base
          length: {minimum: 3, maximum: 254}
          validates :password, presence: true, length: {minimum: 6}
 
+
+         def liked(bookmark)
+           likes.where(bookmark_id: bookmark.id).first
+         end
+         
          protected
          def confirmation_required?
            false

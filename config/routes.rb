@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'likes/index'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
 
   resources :topics do
-    resources :bookmarks
+    resources :bookmarks, except: [:index] do
+      resources :likes, only: [:index, :create, :destroy]
+    end
   end
 
   post :incoming, to: 'incoming#create'
