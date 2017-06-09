@@ -1,7 +1,7 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :topic
-  belongs_to :user
-  
+  delegate :user, to: :topic
+
   has_many :likes, dependent: :destroy
 
 end
