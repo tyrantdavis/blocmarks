@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
          has_many :topics, dependent: :destroy
          has_many :bookmarks,  dependent: :destroy
-        #  has_many :likes, dependent: :destroy
+        has_many :likes, dependent: :destroy
 
          # Virtual attribute for authenticating by either username or email
          # This is in addition to a real persisted field like 'username'
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
          def liked(bookmark)
            likes.where(bookmark_id: bookmark.id).first
          end
-         
+
          protected
          def confirmation_required?
            false
