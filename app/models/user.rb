@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
 
          before_save {self.email.downcase if email.present?}
          # before_save {self.name.capitalize if name.present?}
-         # before_save {self.role ||= :user}
+         before_save {self.role ||= :user}
 
-         # enum role: [:user, :admin]
+         enum role: [:user, :admin]
 
          # validates :username, length: {minimum: 1, maximum: 100}, presence: true
          validates :email, presence: true, uniqueness: {case_sensitive: false},
