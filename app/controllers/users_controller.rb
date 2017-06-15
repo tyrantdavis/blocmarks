@@ -11,9 +11,8 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = params[:id] ? User.find(params[:id]) : current_user
-      @user_bookmarks = @user.bookmarks
-      @liked_bookmarks = user.likes
       @topics = @user.topics
+      @liked_bookmarks = @user.likes.map(&:bookmark)
     else
       redirect_to new_user_registration_path
     end
