@@ -1,0 +1,13 @@
+<h4 class="media-heading">
+   <%= link_to topic.title, topic %>
+</h4>
+
+<% if topic.bookmarks.empty? %>
+ <div class="well bookmark_box">
+   <p> No Bookmarks posted yet. </p>
+ </div>
+<% end %>
+
+<div class="row">
+  <%= render topic.bookmarks %>
+</div>
