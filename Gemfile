@@ -31,9 +31,10 @@ gem 'rails-controller-testing'
 gem 'activeadmin'
 #Gem for user authorization
 gem 'pundit'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-instagram'
+# gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
+gem 'omniauth-amazon'
+
 group :development, :test do
   gem 'byebug'
   gem 'spring'
