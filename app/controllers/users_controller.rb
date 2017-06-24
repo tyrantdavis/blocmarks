@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :require_sign_in
 
   def index
-    @users = User.all
+    # @users = User.all
+    @user = User.find(params[:id])
+    @bookmarks = @user.topic.bookmarks
   end
 
   def new

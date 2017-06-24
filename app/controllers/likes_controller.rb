@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
   end
 
@@ -21,7 +21,7 @@ class LikesController < ApplicationController
 
   def destroy
     # Get the bookmark from the params
-    @bookmark = Bookamrk.find(params[:bookmark_id])
+    @bookmark = Bookmark.find(params[:bookmark_id])
     @topic = @bookmark.topic
     # Find the current user's like with the ID in the params
     like = current_user.likes.build(bookmark: @bookmark)
